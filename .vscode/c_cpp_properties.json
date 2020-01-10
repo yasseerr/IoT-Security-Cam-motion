@@ -1,0 +1,60 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\HP\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Users\\HP\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\**",
+                "${workspaceFolder}/**",
+                "F:/Program Files (x86)/Arduino/libraries/**",
+                "C:/Users/HP/AppData/Local/Arduino15/packages/arduino/hardware/avr/1.8.1/libraries/**",
+                "C:\\Users\\HP\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\libraries\\**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "F:/Qt/Tools/mingw730_64/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "clang-x64",
+            "compilerArgs": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "forcedInclude": []
+        },
+        {
+            "name": "arduino_conf",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "F:/Program Files (x86)/Arduino/libraries/**",
+                "C:/Users/HP/AppData/Local/Arduino15/packages/arduino/hardware/avr/1.8.1/libraries/**",
+                "C:\\Users\\HP\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.2\\libraries\\**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "F:/Qt/Tools/mingw730_64/bin/g++.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x86",
+            "compilerArgs": [],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**",
+                    "C:/Users/HP/AppData/Local/Arduino15/packages/arduino/hardware/avr/1.8.1/libraries/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "forcedInclude": []
+        }
+    ],
+    "version": 4
+}
