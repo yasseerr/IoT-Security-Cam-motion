@@ -1,11 +1,20 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mini Projet IOT</title>
-</head>
-<body>
-    the roting is working
-</body>
-</html>
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="text-center">
+        <img src="{% static 'images\cam.jpg' %}" class="img-fluid rounded-circle" alt="">
+        <h1 class="text-info" >Click to select a quality</h1>
+        <ul >
+            <li class="btn btn-outline-success"><a class="text-dark"  href="#">320*240</a></li>
+            <li class="btn btn-outline-success"><a class="text-dark"  href="#">640x480</a></li>
+            <li class="btn btn-outline-success"><a class="text-dark"  href="#">1024x768</a></li>
+            <li class="btn btn-outline-success"><a class="text-dark"  href="#">10280x960</a></li>
+        </ul>
+    </div>
+    <div style="height: 70%" class="container  border border-dark">
+        <h3>images display</h3><br/>
+    </div>
+
+{% endblock content %}
+    
