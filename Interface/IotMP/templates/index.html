@@ -12,14 +12,15 @@
             <li class="btn btn-outline-success"><a class="text-dark"  href="#">10280x960</a></li>
         </ul>
     </div>
-    <div  class="container  border border-dark" style=" height: 40% ; overflow-y: scroll">
+    <div id="card_holder"  class="container  border border-dark" style=" height: 40% ; overflow-y: scroll">
         <h3 class="alert alert-heading bg-warning">
             images display
             <a  class="btn btn-danger float-xl-right" href="{% url 'reset' %}">Reset</a>
+            <a  class="btn btn-success float-xl-right" href="{% url 'refresh' %}">refresh</a>
         </h3><br/>
         
         {% for i in images_list %}
-            <div class="card card-body float-left" style="width: 150px;height:150px; ">
+            <div id="i" class="card card-body float-left" style="width: 150px;height:150px; ">
                 <img class="card-img-top" style="height: 80%;width: 100%;" src='{% static i %}' alt="">
             </div>
         {% endfor %}

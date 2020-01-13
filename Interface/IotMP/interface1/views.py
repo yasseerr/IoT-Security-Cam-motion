@@ -34,3 +34,6 @@ def capture_view(request):
     capture_image()
     return 'render'
 
+def refresh(request):
+    return home_interface(request)
+
