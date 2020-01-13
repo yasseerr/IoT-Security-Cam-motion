@@ -30,4 +30,4 @@ class CaptureThread(threading.Thread):
     def pir_status(self):
         url = 'http://192.168.43.207/pir_check'
         respense = requests.get(url)
-        return respense
+        return respense.content.decode('utf-8')

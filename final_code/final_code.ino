@@ -22,7 +22,7 @@ const int CS = D0;
 const int LED_PIN = D2;
 const int PIR_PIN  = D8;
 
-int last_capture_request = 'n';
+String last_capture_request = "n";
 //you can change the value of wifiType to select Station or AP mode.
 //Default is AP mode.
 int wifiType = 0; // 0:Station  1:AP
@@ -300,11 +300,11 @@ void handle_PIR()
 {
     if (digitalRead(PIR_PIN) == HIGH)
     {
-        last_capture_request = 'y';;
+        last_capture_request = "y";;
         digitalWrite(LED_PIN, HIGH);
     }else
     {
-        last_capture_request = 'n';
+        last_capture_request = "n";
         digitalWrite(LED_PIN, LOW);
     }
 }
@@ -315,6 +315,7 @@ void check_PIR_respense()
     WiFiClient client = server.client();
     String respense =  "";
     respense += last_capture_request;
-    server.sendContent(respense);
+    server.send(200, "text/plain", respense);
 }
+
 
