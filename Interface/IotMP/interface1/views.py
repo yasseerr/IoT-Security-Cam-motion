@@ -11,8 +11,9 @@ logger = logging.getLogger(__name__)
 def home_interface(request):
     logger.debug('is logger working')
     ##TODO load the files from here when finished with the prototype
-    images_list = ['captures/capture' +str(x)+'.jpg' for x in range(getattr(settings, 'capture_id', 0))]
-    logger.debug(len(images_list))
+    images_list = [os.path.dirname(manage.__file__)+'/static/captures/'+ \
+        x for x in os.listdir(os.path.dirname(manage.__file__)+'/static/captures/')]
+    #logger.debug(len(images_list))
     var_dict = {'name':"yasser",'images_list':images_list}
     return render(request,'index.html',var_dict)
 
