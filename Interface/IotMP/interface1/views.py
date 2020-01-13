@@ -3,12 +3,16 @@ from django.conf import settings
 import manage
 import requests
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 def home_interface(request):
-    capture_image()
+    logger.debug('is logger working')
     ##TODO load the files from here when finished with the prototype
     images_list = ['captures/capture' +str(x)+'.jpg' for x in range(getattr(settings, 'capture_id', 0))]
+    logger.debug(len(images_list))
     var_dict = {'name':"yasser",'images_list':images_list}
     return render(request,'index.html',var_dict)
 
@@ -24,3 +28,8 @@ def capture_image():
 def reset_system(request):
     setattr(settings, 'capture_id', 0)
     return home_interface(request)
+
+def capture_view(request):
+    capture_image()
+    return 'render'
+

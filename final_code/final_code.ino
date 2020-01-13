@@ -2,7 +2,7 @@
 #include <WiFiClient.h>
 #include <ESP8266WebServer.h>
 #include <ESP8266mDNS.h>
-
+#include <HttpClient.h>
 #include <Wire.h>
 #include <ArduCAM.h>
 #include <SPI.h>
@@ -22,6 +22,7 @@ const int CS = D0;
 const int LED_PIN = D2;
 const int PIR_PIN  = D8;
 
+int last_capture_request = 'n';
 //you can change the value of wifiType to select Station or AP mode.
 //Default is AP mode.
 int wifiType = 0; // 0:Station  1:AP
@@ -283,6 +284,7 @@ void setup()
     // Start the server
     server.on("/capture", HTTP_GET, serverCapture);
     server.on("/stream", HTTP_GET, serverStream);
+    server.on("/pir_check", HTTP_GET, check_PIR_respense);
     server.onNotFound(handleNotFound);
     server.begin();
     Serial.println("Server started");
@@ -298,9 +300,21 @@ void handle_PIR()
 {
     if (digitalRead(PIR_PIN) == HIGH)
     {
+        last_capture_request = 'y';;
         digitalWrite(LED_PIN, HIGH);
     }else
     {
+        last_capture_request = 'n';
         digitalWrite(LED_PIN, LOW);
     }
 }
+
+void check_PIR_respense()
+{
+    Serial.println('cheking request');
+    WiFiClient client = server.client();
+    String respense =  "";
+    respense += last_capture_request;
+    server.sendContent(respense);
+}
+
