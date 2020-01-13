@@ -1,0 +1,86 @@
+### RPi 	
+
+* host the django server
+
+  * sound notification
+	*  respend to client request
+
+### wemos 	
+
+* server respensible for sensors data
+
+  * server.on(capture ) respend to capture request take a picture and read the SPI data
+
+	*  server.on(pir_check) return a yes or a no , concerning if there is motin
+	each of the above have its own respense function,
+	
+	*  handle_PIR to check if the motion is present and change the state of to motion/non
+	*  check_PIR_respense respens to the client and formulate the http needed and send it 
+		depending on the current state of the motion
+	
+* you can setup the wemos to pe an access point AP or a Station using the wifi-type variable
+* settup the AP or the Wifi ssid and password
+
+* create a server and cams instances
+
+  	NOTE use D1--> D15 predefined constants instead of regular arduino pins numbers
+
+
+
+### arducam	
+
+* clone the arducam repos 
+
+		*  copie it to arduino/libraries
+	
+	*  uncommment the define of the ardcam 
+	*  in our case we have an arducam 5mp mini BOO68 or aduino 5 plus ov5642
+	
+*  use the following pins to link the cam
+	D0 ----->  chip select // defined in the code
+	D3 SCL-->  SCL
+	D4 SDA ->  SDA
+	D5 SCK ->  SCK
+	D6 MISO->  MISO
+	D6 MOSI->  MOSI
+	GND TO GND
+	VCC TO 5v
+	
+* use the exemple defined for the same arducam as a  base for the application
+
+  
+
+### PIR		
+
+*  passive infrared
+
+  *  needs a 60 seconds to stablise with the room radiations
+ *  tune the ssensitivity and the time to stay up when motion detection
+*  output a HIGH if theer is Motion
+
+
+
+### DJANGO 	
+
+* main interface is the interface1
+
+* / retuen the home page
+
+* /reset remove the captured images and reinitialize the counters
+
+* /refresh requested from the refresh button or the auto interval function
+  	to execute the captureThread and run it if it is  not already running
+  	reload all the captured images in the static/captures to the client
+
+* captureThread respensible for sending request to get motion stat and
+  if the state requested is true , enumerate the image give it a name after downloading it
+
+* app.js hold the code for refreshing the captures dynamicly
+
+* jqury and ajax to simplify the loading
+
+* bootstrap for styling
+
+  
+
+  > THE ARCHITECTURE IMAGE IS IN THE REPOSETRY
