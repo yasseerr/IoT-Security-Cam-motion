@@ -1,21 +1,20 @@
 ### RPi 	
 
 * host the django server
-
-  * sound notification
-	*  respend to client request
+* sound notification
+* respend to client request
 
 ### wemos 	
 
 * server respensible for sensors data
 
-  * server.on(capture ) respend to capture request take a picture and read the SPI data
+* server.on(capture ) respend to capture request take a picture and read the SPI data
 
-	*  server.on(pir_check) return a yes or a no , concerning if there is motin
+*  server.on(pir_check) return a yes or a no , concerning if there is motin
 	each of the above have its own respense function,
 	
-	*  handle_PIR to check if the motion is present and change the state of to motion/non
-	*  check_PIR_respense respens to the client and formulate the http needed and send it 
+*  handle_PIR to check if the motion is present and change the state of to motion/non
+*  check_PIR_respense respens to the client and formulate the http needed and send it 
 		depending on the current state of the motion
 	
 * you can setup the wemos to pe an access point AP or a Station using the wifi-type variable
@@ -54,8 +53,8 @@
 
 *  passive infrared
 
-  *  needs a 60 seconds to stablise with the room radiations
- *  tune the ssensitivity and the time to stay up when motion detection
+*  needs a 60 seconds to stablise with the room radiations
+*  tune the ssensitivity and the time to stay up when motion detection
 *  output a HIGH if theer is Motion
 
 
@@ -83,4 +82,4 @@
 
   
 
-  > THE ARCHITECTURE IMAGE IS IN THE REPOSETRY
+> THE ARCHITECTURE IMAGE IS IN THE REPOSETRY
