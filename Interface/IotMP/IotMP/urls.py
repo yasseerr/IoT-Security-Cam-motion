@@ -19,8 +19,7 @@ from interface1 import urls,views
 
 urlpatterns = [
     path('reset',views.reset_system,name='reset'),
-    path('refresh', views.reset_system, name='refresh'),
-    path('capture', views.capture_view),
+    path('refresh', views.refresh, name='refresh'),
     path('admin/', admin.site.urls),
     path(r'',include('interface1.urls')),
 ]

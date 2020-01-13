@@ -12,8 +12,26 @@
         <h1 class='h1 text-center text-white'>Iot security monitoring mini Project </h1>
     </header>
      <div class="container">
-        {% block content %}
-        {% endblock content %}
+            <div class="text-center">
+                <img src="{% static 'images\cam.jpg' %}" class="img-fluid rounded-circle" alt="">
+                <h1 class="text-info">Click to select a quality</h1>
+                <ul>
+                    <li class="btn btn-outline-success"><a class="text-dark" href="#">320*240</a></li>
+                    <li class="btn btn-outline-success"><a class="text-dark" href="#">640x480</a></li>
+                    <li class="btn btn-outline-success"><a class="text-dark" href="#">1024x768</a></li>
+                    <li class="btn btn-outline-success"><a class="text-dark" href="#">10280x960</a></li>
+                </ul>
+            </div>
+            <div class="container  border border-dark" style=" height: 40% ; overflow-y: scroll">
+                <h3 class="alert alert-heading bg-warning">
+                    images display
+                    <a class="btn btn-danger float-xl-right" href="{% url 'reset' %}">Reset</a>
+                    <a class="btn btn-success float-xl-right" href="{% url 'refresh' %}">refresh</a>
+                </h3><br />
+                <div id="card_holder" >
+                    
+                </div>
+            </div>
      </div>
     <script src="{% static 'js/jquery-3.4.1.min.js'%}"></script>
     <script src="{% static 'js/app.js'%}"></script>

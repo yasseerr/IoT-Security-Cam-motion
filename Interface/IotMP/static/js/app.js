@@ -2,12 +2,7 @@
 var last_update = 0
 
 function check_images() {
-    
-    $.get("192.168.43.207/pir_check",
-        function (data, textStatus, jqXHR) {
-            console.log(data)
-        }
-    );
+    $('#card_holder').load("http://localhost:8000/refresh");
 
     console.log("hello woed again and again")
 }
