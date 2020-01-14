@@ -23,6 +23,10 @@ def home_interface(request):
 
 def reset_system(request):
     setattr(settings, 'capture_id', 0)
+    images_list = [os.path.dirname(manage.__file__)+'/static/captures/' + \
+        x for x in os.listdir(os.path.dirname(manage.__file__)+'/static/captures/')]
+    for img_path in images_list:
+        os.remove(img_path)
     return home_interface(request)
 
 
