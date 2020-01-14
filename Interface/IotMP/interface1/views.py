@@ -33,8 +33,8 @@ def reset_system(request):
 def refresh(request):
     if not captureThread.isRunning:
         captureThread.run()
-    images_list = [os.path.dirname(manage.__file__)+'/static/captures/' +
-        x for x in os.listdir(os.path.dirname(manage.__file__)+'/static/captures/')]
+    first_path = os.path.join(os.path.dirname(manage.__file__),'static/captures')
+    images_list = [ os.path.join(first_path,x)  for x in os.listdir(first_path)]
     #logger.debug(len(images_list))
     var_dict = {'name':"yasser",'images_list':images_list}
     return render(request,"index.html",var_dict)
